@@ -7,8 +7,9 @@
  	ruins = new Bacteria[100];
  	for(int i = 0;i<ruins.length;i++)
  	{
- 		ruins[i] = new Bacteria(400,400);
+ 		ruins[i] = new Bacteria((int)(Math.random()*800),0);
  	}
+
  }   
  void draw()   
  {    
@@ -20,6 +21,7 @@
   	}
   	Soul frisk = new Soul();
   	frisk.show();
+  	frisk.move();
  }  
  class Bacteria    
  {     
@@ -47,7 +49,11 @@
  	void move()
  	{
  		myX = myX + (int)(Math.random()*7)-3;
-    	myY = myY + (int)(Math.random()*7)-3;
+    	myY = myY + (int)(Math.random()*12)-5;
+    	if(myY > 800)
+    	{
+    		myY = 0;
+    	}
  	}
  }    
  class Soul
@@ -63,6 +69,21 @@
  	void show()
  	{
  		fill(255,0,0);
+ 		noStroke();
  		triangle(myX-10,myY,myX+10,myY,myX,myY+10);
+ 		ellipse(myX-5,myY-5,11,15);
+ 		ellipse(myX+5,myY-5,11,15);
+ 		
+ 	}
+ 	void move()
+ 	{
+ 		if(mouseX > myX)
+ 		{
+ 			myX += 5;
+ 		}
+ 		if(mouseX < myX)
+ 		{
+ 			myX -= 5;
+ 		}
  	}
  }
