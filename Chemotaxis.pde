@@ -11,7 +11,6 @@
  	{
  		ruins[i] = new Bacteria((int)(Math.random()*800),0);
  	}
- 	
 
  }   
  void draw()   
@@ -25,7 +24,7 @@
   		frisk.move();
     	ruins[i].show();
     	ruins[i].move();
-    	frisk.check();
+    	
   	}
   	
   	
@@ -102,11 +101,4 @@
  		}
  	}
 
- 	void check()
- 	{
- 		if ((mouseY - 15) == color(255,255,255))
- 		{
- 			background(255,0,0);
- 		}
- 	}
  }
